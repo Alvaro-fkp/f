@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ficha - Blades in the Dark</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/ddice@1.1.0/ddice.min.js"></script>
+</head>
+<body>
+  <main class="sheet">
+    <!-- Cabeçalho -->
+    <header>
+      <h1>Ficha de Personagem</h1>
+      <div class="info-and-image">
+        <!-- Informações Gerais -->
+        <div class="general-info">
+          <label for="character-name">Nome do Personagem:</label>
+          <input type="text" id="character-name" placeholder="Digite o nome do personagem">
+
+          <label for="player-name">Nome do Jogador:</label>
+          <input type="text" id="player-name" placeholder="Digite o nome do jogador">
+
+          <label for="experience">Experiência:</label>
+          <input type="number" id="experience" value="0" min="0">
+        </div>
+
+        <!-- Campo de Imagem -->
+        <div class="character-image">
+          <label for="character-image-upload">Imagem do Personagem:</label>
+          <input type="file" id="character-image-upload" accept="image/*" onchange="previewImage(event)">
+          <div id="image-preview"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Seção de Habilidades Especiais -->
+    <section id="special-abilities">
+      <h2>Habilidades Especiais</h2>
+      <label for="specialAbility">Escolha uma habilidade:</label>
+      <select id="specialAbility" onchange="chooseSpecialAbility()">
+        <option value="">Selecione...</option>
+        <option value="special1">Quem quer dinheiro!?</option>
+        <option value="special2">Habilidade Especial 2</option>
+        <option value="special3">Habilidade Especial 3</option>
+        <option value="special4">Habilidade Especial 4</option>
+      </select>
+      <p id="descriptionText">Descrição da habilidade aparecerá aqui.</p>
+    </section>
+
+    <!-- Atributos -->
+    <section id="attributes">
+      <h2>Atributos</h2>
+      <div class="attributes">
+        <div class="attribute">
+          <h3>Insight</h3>
+          <p id="insight">0</p>
+          <button onclick="rollAttribute('insight')">Rolar</button>
+        </div>
+        <div class="attribute">
+          <h3>Prowess</h3>
+          <p id="prowess">0</p>
+          <button onclick="rollAttribute('prowess')">Rolar</button>
+        </div>
+        <div class="attribute">
+          <h3>Resolve</h3>
+          <p id="resolve">0</p>
+          <button onclick="rollAttribute('resolve')">Rolar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills">
+      <h2>Habilidades</h2>
+      <div class="skills-list">
+        <h3>Insight</h3>
+    <label onclick="rollSkill('hunt')">Caçar (Hunt)</label>
+    <input id="hunt" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('study')">Estudo (Study)</label>
+    <input id="study" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('survey')">Investigar (Survey)</label>
+    <input id="survey" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('tinker')">Consertar (Tinker)</label>
+    <input id="tinker" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+        <h3>Prowess</h3>
+    <label onclick="rollSkill('finesse')">Finesse</label>
+    <input id="finesse" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('prowl')">Infiltrar (Prowl)</label>
+    <input id="prowl" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('skirmish')">Lutar (Skirmish)</label>
+    <input id="skirmish" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('wreck')">Destruir (Wreck)</label>
+    <input id="wreck" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+        <h3>Resolve</h3>
+    <label onclick="rollSkill('attune')">Canalizar (Attune)</label>
+    <input id="attune" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('command')">Comandar (Command)</label>
+    <input id="command" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('consort')">Socializar (Consort)</label>
+    <input id="consort" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+
+    <label onclick="rollSkill('sway')">Persuadir (Sway)</label>
+    <input id="sway" type="number" value="0" min="0" max="4" onchange="updateAttributes()">
+      </div>
+    </section>
+
+    <!-- Herança e Background -->
+    <section id="heritage-background">
+      <h2>Herança e Background</h2>
+      <div class="editable-field">
+        <h3>Herança</h3>
+        <p id="heritage-name">Nome da Herança</p>
+        <p id="heritage-description">Descrição da Herança.</p>
+        <button id="heritage-edit-btn" onclick="toggleEdit('heritage')">Editar</button>
+      </div>
+      <div class="editable-field">
+        <h3>Background</h3>
+        <p id="background-name">Nome do Background</p>
+        <p id="background-description">Descrição do Background.</p>
+        <button id="background-edit-btn" onclick="toggleEdit('background')">Editar</button>
+      </div>
+    </section>
+
+    <!-- Resultados -->
+    <section id="results">
+      <h2>Resultados</h2>
+      <div id="result">Os resultados aparecerão aqui.</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

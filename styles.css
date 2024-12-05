@@ -1,0 +1,327 @@
+/* Geral */
+body {
+  font-family: 'Lora', serif;
+  background-color: #111;
+  color: #eee;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container principal */
+.sheet {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Cabeçalho */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+/* Informações Gerais e Imagem */
+.info-and-image {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 20px; /* Adiciona espaço entre os itens */
+}
+
+.general-info {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.general-info label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.general-info input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #eee;
+  border-radius: 5px;
+}
+
+/* Campo de Imagem */
+.character-image {
+  flex: 0 0 200px;
+  text-align: center;
+}
+
+.character-image label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#character-image-upload {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#image-preview {
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+  border: 2px solid; #444;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 10px; /* Espaço entre o upload e a pré-visualização */
+}
+
+/* Estilização geral da seção de habilidades */
+#skills {
+  margin-top: 20px;
+}
+
+#skills h2 {
+  font-size: 1.8em;
+  color: #d4af37;
+  margin-bottom: 15px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+/* Estilização para a lista de habilidades */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Títulos das categorias de habilidades (Insight, Prowess, Resolve) */
+.skills-list h3 {
+  font-size: 1.4em;
+  color: #d4af37;
+  margin: 10px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+/* Estilização dos rótulos de habilidades */
+.skills-list label {
+  display: block;
+  font-size: 0.8em;
+  color: #eee;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.skills-list label:hover {
+  color: #d4af37;
+  text-shadow: 0 0 5px #d4af37;
+}
+
+/* Estilização dos inputs de habilidades */
+.skills-list input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  font-size: 1em;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #eee;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.skills-list input[type="number"]:focus {
+  outline: 2px solid #d4af37;
+}
+
+/* Organização interna das habilidades */
+.skill-group {
+  margin-bottom: 20px;
+}
+
+.skill-group label,
+.skill-group input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .skills-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .skills-list input[type="number"] {
+    width: 50px;
+  }
+}
+
+/* Atributos */
+#attributes {
+  margin-bottom: 30px;
+}
+
+.attributes {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.attribute {
+  flex: 1;
+  text-align: center;
+  background: #292929;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.attribute h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.attribute p {
+  font-size: 1.8em;
+  margin: 10px 0;
+}
+
+.attribute button {
+  background: #d4af37;
+  color: #121212;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.attribute button:hover {
+  background: #b3862e;
+}
+
+/* Habilidades */
+#skills {
+  margin-bottom: 30px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.skills-list h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.skills-list label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #d4af37;
+}
+
+.skills-list input {
+  width: 100%;
+  max-width: 100px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+/* Herança e Background */
+#heritage-background {
+  margin-bottom: 30px;
+}
+
+#heritage-background h2 {
+  color: #d4af37;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.editable-field {
+  margin-bottom: 20px;
+  background: #292929;
+  padding: 15px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.editable-field h3 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.editable-field p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.editable-field button {
+  background: #d4af37;
+  color: #121212;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.editable-field button:hover {
+  background: #b3862e;
+}
+
+/* Resultados */
+#results {
+  margin-top: 30px;
+  padding: 15px;
+  background: #292929;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+#results h2 {
+  color: #d4af37;
+  text-align: center;
+}
+
+#result {
+  margin-top: 10px;
+  padding: 10px;
+  background: #222;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #aaa;
+}
